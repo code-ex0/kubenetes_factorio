@@ -25,10 +25,12 @@ serviceAccount:
 
 podAnnotations: {}
 
-podSecurityContext: {}
+podSecurityContext:
+  {}
   # fsGroup: 2000
 
-securityContext: {}
+securityContext:
+  {}
   # capabilities:
   #   drop:
   #   - ALL
@@ -46,18 +48,19 @@ ingress:
   annotations:
     # kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
-    cert-manager.io/cluster-issuer: "letsencrypt-dev"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
   hosts:
-    - host: ynov-k8s-app.duckdns.org
+    - host: kube.ski-sync.com
       paths:
         - path: /
           pathType: ImplementationSpecific
   tls:
     - hosts:
-        - ynov-k8s-app.duckdns.org
+        - kube.ski-sync.com
       secretName: sample-app-tls
 
-resources: {}
+resources:
+  {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
